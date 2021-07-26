@@ -4,7 +4,7 @@ import { NbWindowService } from '@nebular/theme';
 import { TestimonialformComponent } from '../testimonialform/testimonialform.component';
 import { TestService } from '../test.service';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 
 @Component({
@@ -25,7 +25,8 @@ export class TestimonialsComponent implements OnInit {
       Image:""
     }
   
-    constructor(private windowService:NbWindowService,private testService:TestService,private router:Router) { }
+    constructor(private windowService:NbWindowService,private testService:TestService,private router:Router,private route: ActivatedRoute ) { }
+    
   
     ngOnInit(): void {
   
@@ -36,5 +37,6 @@ export class TestimonialsComponent implements OnInit {
   addTestimonial(){
     this.windowService.open(TestimonialformComponent, { title: 'Add testimonial'});
   }
-  
+ 
+
   }

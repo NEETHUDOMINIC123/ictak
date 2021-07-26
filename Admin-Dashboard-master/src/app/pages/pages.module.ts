@@ -15,6 +15,9 @@ import { StaffFormComponent } from './staff-form/staff-form.component';
 import { UsersComponent } from './users/users.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { TestimonialformComponent } from './testimonialform/testimonialform.component';
+import { AddtestimonialComponent } from './addtestimonial/addtestimonial.component';
+import { DeletetestimonialComponent } from './deletetestimonial/deletetestimonial.component';
+import { EdittestimonialComponent } from './edittestimonial/edittestimonial.component';
 
 
 @NgModule({
@@ -38,6 +41,9 @@ import { TestimonialformComponent } from './testimonialform/testimonialform.comp
     UsersComponent,
     TestimonialsComponent,
     TestimonialformComponent,
+    AddtestimonialComponent,
+    DeletetestimonialComponent,
+    EdittestimonialComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -26,19 +26,34 @@
                 <h6 style="width:35rem">Organization</h6>
                 <h6 style="width:40rem">Testimonial</h6>
                 <h6 style="width:45rem">Course_title</h6>
+                <h6 style="width:50rem">Image</h6>
     
             </nb-list-item>
     
         </nb-list>
-        <nb-list-item class="anchor" *ngFor="let testimonial of testimonials">
+       
+            <nb-list class="anchor" *ngFor="let testimonial of testimonials">
             <h7 style='width: 16rem'> {{i+1}}</h7>
             <h7 style='width: 30rem'> {{testimonial.name}}</h7>
             <h7 style='width: 35rem'> {{testimonial.position}}</h7>
             <h7 style='width: 40rem'> {{testimonial.organization}}</h7>
             <h7 style='width: 50rem'> {{testimonial.testimonial}}</h7>
+            <h7 style='width: 55rem'> {{testimonial.course_title}}</h7>
+            <h7 style='width: 60rem'> {{testimonial.image}}</h7>
+            <div>
+                <a (click)="viewTestimonial(Testimonial)">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </a>
+                <a (click)="editTestimonial(Testimonial)">
+                    <ion-icon name="create-outline"></ion-icon>
+                </a>
+                <a (click)="deleteTestimonial(Testimonial)">
+                    <ion-icon name="trash-outline"></ion-icon>
+                </a>
+            </div>
 
-
-        </nb-list-item>
+     
+            </nb-list>
     </nb-card-body>
 
 </nb-card>
