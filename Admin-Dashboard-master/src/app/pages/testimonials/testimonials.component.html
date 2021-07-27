@@ -5,7 +5,7 @@
 <nb-card class="list-card">
     <nb-card-header><h5>Testimonials  </h5>
     
-        <a (click)="addTestimonial()"class="plus">
+        <a (click)="addTestimonial()">
             <ion-icon name="add-outline"></ion-icon>
         </a>        
         
@@ -17,6 +17,8 @@
             <ion-icon name="close"></ion-icon>
         </a>
     </nb-card-header>
+
+
     <nb-card-body>
         <nb-list>
             <nb-list-item>
@@ -24,38 +26,41 @@
                 <h6 style="width:25rem">Name</h6>
                 <h6 style="width:30rem">Position</h6>
                 <h6 style="width:35rem">Organization</h6>
-                <h6 style="width:40rem">Testimonial</h6>
-                <h6 style="width:45rem">Course_title</h6>
-                <h6 style="width:50rem">Image</h6>
+                <h6 style="width:40rem">Course_title</h6>
+                <h6 style="width:45rem">Image</h6>
     
             </nb-list-item>
     
         </nb-list>
-       
+       <nb-list>
             <nb-list class="anchor" *ngFor="let testimonial of testimonials">
             <h7 style='width: 16rem'> {{i+1}}</h7>
             <h7 style='width: 30rem'> {{testimonial.name}}</h7>
             <h7 style='width: 35rem'> {{testimonial.position}}</h7>
             <h7 style='width: 40rem'> {{testimonial.organization}}</h7>
-            <h7 style='width: 50rem'> {{testimonial.testimonial}}</h7>
-            <h7 style='width: 55rem'> {{testimonial.course_title}}</h7>
-            <h7 style='width: 60rem'> {{testimonial.image}}</h7>
+            <h7 style='width: 45rem'> {{testimonial.course_title}}</h7>
+            <h7 style='width: 50rem'> {{testimonial.image}}</h7>
+            
             <div>
-                <a (click)="viewTestimonial(Testimonial)">
-                    <ion-icon name="eye-outline"></ion-icon>
+                <a class="plus">
+                    <ion-icon name="eye-outline "></ion-icon>
                 </a>
-                <a (click)="editTestimonial(Testimonial)">
+
+               
+                <a (click)="editTestimonial(testimonial)" class="plus">
                     <ion-icon name="create-outline"></ion-icon>
                 </a>
-                <a (click)="deleteTestimonial(Testimonial)">
+                <a (click)="deleteTestimonial(testimonial)" class="plus">
                     <ion-icon name="trash-outline"></ion-icon>
                 </a>
             </div>
 
-     
             </nb-list>
+       </nb-list>
     </nb-card-body>
-
 </nb-card>
+ </div>
 </div>
-</div>
+
+
+

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TestimonialsComponent } from '../testimonials/testimonials.component';
 import { TestService } from '../test.service';
-import { ActivatedRoute,Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { moveItemInArray, CdkDragDrop } from "@angular/cdk/drag-drop";
+import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { NbWindowService } from '@nebular/theme';
 
 
 @Component({
@@ -24,7 +26,7 @@ export class TestimonialformComponent implements OnInit {
   
     }
   
-   constructor(private testService:TestService,private router:Router,private route: ActivatedRoute) { }
+   constructor(private testService:TestService,private router:Router) { }
     ngOnInit(): void {
     }
     addTestimonial(){
@@ -33,7 +35,7 @@ export class TestimonialformComponent implements OnInit {
       console.log(`upload image ${this.images}`);
       console.log("called");
       alert("success")
-      this.router.navigate(['pages/testimonials'])
+      this.router.navigate(['/pages/testimonials'])
     }
    
     selectImage(event : any) {
@@ -50,13 +52,4 @@ export class TestimonialformComponent implements OnInit {
 
 
 
-    deleteTestimonial(testimonial : any){}
-
-    editTestimonial(testimonial : any){}
-
-    viewTestimonial(testimonial : any){}
-  
-  
-  
-  
-  }
+}

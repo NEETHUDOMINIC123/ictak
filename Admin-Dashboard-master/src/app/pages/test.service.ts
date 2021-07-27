@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-
-import {HttpClient ,HttpResponse} from '@angular/common/http';
+import { HttpClient,HttpResponse } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
 
-  constructor( private http:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
   item={
     name:"",
@@ -19,7 +17,9 @@ export class TestService {
     image:""
 
   }
-
+   gettestimonial(id:any){
+   return this.http.get("http://localhost:1111/testimonial/"+id);
+  }
   
   
   gettestimonials(){
@@ -35,6 +35,7 @@ export class TestService {
     formData.append('name', item.name); 
     formData.append('position', item.position); 
     formData.append('organization', item.organization); 
+    formData.append('course_title', item.course_title);
     formData.append('image', item.image); 
      
 
@@ -43,8 +44,34 @@ export class TestService {
     return this.http.post("http://localhost:1111/insert",{"testimonial":item})
     .subscribe(data =>{console.log(data)})
   }
-  
+  deletetestimonial(testimonial:any){
+    return this.http.post("http://localhost:1111/testimonial/remove/",testimonial);
+  }
 
+  editTestimonial(item:any)
+  {
+    console.log('client update')
+    return this.http.post("http://localhost:1111/testimonial/update",item)
+    .subscribe(data =>{console.log(`response recieved ${data}`)})
+  };
+ 
+  editTestimonialWithImage(image:any, item:any){
+    
+    console.log('inside service upload')
+    const formData = new FormData();
+    formData.append('_id', item._id); 
+    formData.append('file', image);  
+    formData.append('name', item.name); 
+    formData.append('position', item.position); 
+    formData.append('organization', item.organization); 
+    formData.append('course_title', item.course_title);
+    formData.append('image', item.image); 
+     
+
+    return this.http.post("http://localhost:1111/testimonial/updateWithFile",formData)
+    .subscribe(data =>{console.log(data)})
+
+  }
   }
 
 
