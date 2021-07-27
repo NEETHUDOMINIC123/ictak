@@ -3,18 +3,16 @@ const cors = require('cors');
 const jwt= require('jsonwebtoken')
 const path = require('path');
 const bodyparser =require('body-parser');
-const Testimonialdata = require('./src/model/testimonialdata');
+const TestimonialData = require('./src/model/Testimonialdata');
 const multer = require('multer')
 
 
-
-const app = new express();
+var app = new express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 app.use(bodyparser.json());
 
 
-const port = process.env.PORT || 5000;
 
 //insert
 app.post('/insert',function(req,res){
@@ -43,12 +41,12 @@ app.post('/insert',function(req,res){
         name : req.body.name,
         position : req.body.position,
         organization : req.body.organization,
-        course_title  : req.body.course_title,   
         testimonial : req.body.testimonial,
+        course_title  : req.body.course_title,   
         image : req.body.image,
    }       
    var testimonial = new TestimonialData(testimonial);
-   testimonial.save()
+   testimonial.save();
 });
 
 });
@@ -57,7 +55,7 @@ app.post('/insert',function(req,res){
 
 app.get('/testimonials',function(req,res){
     
-    Testimonialdata.find()
+    TestimonialData.find()
                 .then(function(testimonials){
                     res.send(testimonials);
                 });
@@ -92,15 +90,17 @@ app.post('/testimonial/update',(req,res)=>{
   console.log(` inside update ${req.body.id}`);
         id          = req.body._id,
         name        = req.body.name,
-        position = req.body.position,
-        organization      = req.body.organization,
+        position    = req.body.position,
+        organization = req.body.organization,
         testimonial  = req.body.testimonial,
+        course_title =req.body.course_title,
         image       = req.body.image
         TestimonialData.findByIdAndUpdate({"_id":id},
                               {$set:{"name":name,
                               "position":position,
                               "organization":organization,
                               "testimonial":testimonial,
+                              "course_title":course_title,
                               "image":image}})
  .then(function(){
      res.send();
@@ -129,22 +129,46 @@ app.post('/testimonial/updateWithFile',(req,res)=>{
       console.log("File is uploaded");
       // console.log(`the title is ${req.body.title}`);
   console.log(` inside update with image ${req.body.name}`);
-  id          = req.body._id,
+        id  = req.body._id,
         name  = req.body.name,
   position = req.body.position,
   organization       = req.body.organization,
   testimonial        =req.body.testimonial,
-  image       = req.body.image
-  StaffData.findByIdAndUpdate({"_id":id},
+  course_title       =req.body.course_title,
+  image              = req.body.image
+  TestimonialData.findByIdAndUpdate({"_id":id},
                               {$set:{"name":name,
                               "position":position,
                               "organization":organization,
+                              "testimonial":testimonial,
+                              "course_title":course_title,
                               "image":image}})
  .then(function(){
      res.send();
  })
 });
 });
+
+ //udating index
+ app.put('/Testimonials/updateIndex',(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*")
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH,PUT,DELETE,OPTIONS');     
+  
+  id         = req.body._id;
+  title      = req.body.name;
+  index      = req.body.index;
+  console.log(`update of ${title} with value ${index}`);
+  TestimonialData.findByIdAndUpdate({"_id":id},
+                              {$set:{"index":index}})
+ .then(function(){
+     res.send();
+ })
+
+});
+
+
+
+
 
 
 

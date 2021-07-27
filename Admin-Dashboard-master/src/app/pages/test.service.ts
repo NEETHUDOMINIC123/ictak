@@ -18,12 +18,12 @@ export class TestService {
 
   }
    gettestimonial(id:any){
-   return this.http.get("http://localhost:1111/testimonial/"+id);
+   return this.http.get("http://localhost:5000/testimonial/"+id);
   }
   
   
   gettestimonials(){
-    return this.http.get("http://localhost:1111/testimonials");
+    return this.http.get("http://localhost:5000/testimonials");
   }
 
   newTestimonial(image:any,item:any)
@@ -41,17 +41,17 @@ export class TestService {
 
 
 
-    return this.http.post("http://localhost:1111/insert",{"testimonial":item})
+    return this.http.post("http://localhost:5000/insert",{"testimonial":item})
     .subscribe(data =>{console.log(data)})
   }
   deletetestimonial(testimonial:any){
-    return this.http.post("http://localhost:1111/testimonial/remove/",testimonial);
+    return this.http.post("http://localhost:5000/testimonial/remove/",testimonial);
   }
 
   editTestimonial(item:any)
   {
     console.log('client update')
-    return this.http.post("http://localhost:1111/testimonial/update",item)
+    return this.http.post("http://localhost:5000/testimonial/update",item)
     .subscribe(data =>{console.log(`response recieved ${data}`)})
   };
  
@@ -68,7 +68,7 @@ export class TestService {
     formData.append('image', item.image); 
      
 
-    return this.http.post("http://localhost:1111/testimonial/updateWithFile",formData)
+    return this.http.post("http://localhost:5000/testimonial/updateWithFile",formData)
     .subscribe(data =>{console.log(data)})
 
   }

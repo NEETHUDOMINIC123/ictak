@@ -36,6 +36,10 @@ export class TestimonialsComponent implements OnInit {
       })
     }
 
+    onDrop(event: CdkDragDrop<string[]>) {
+      moveItemInArray(this.testimonials, event.previousIndex, event.currentIndex);
+    }
+
     addTestimonial(){
       this.router.navigate(['../addtestimonial'], { relativeTo: this.route });
    }
@@ -53,5 +57,21 @@ export class TestimonialsComponent implements OnInit {
    //  this.router.navigate(['../edittestimonial'], { relativeTo: this.route });
    //}
  
+  // saveCourseIndex(){
+  //  console.log(this.testimonials);
+  //  for(let i= 0; i<this.testimonials.length; i++){
+  //  this.testimonials[i].index=i;  
+  //  this.testService.updateTestimonialsIndex(this.testimonials[i])
+   // .subscribe((staff)=>{
+   //   console.log(staff);
+   // });
+ // }
+// }
 
+// resetCourseIndex(){
+ // let currentUrl = this.router.url;
+ // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+  //    this.router.navigate([currentUrl]);
+ // });
+// }
   }
