@@ -16,7 +16,6 @@ import { UsersComponent } from './users/users.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { TestimonialformComponent } from './testimonialform/testimonialform.component';
 import { AddtestimonialComponent } from './addtestimonial/addtestimonial.component';
-import { DeletetestimonialComponent } from './deletetestimonial/deletetestimonial.component';
 import { EdittestimonialComponent } from './edittestimonial/edittestimonial.component';
 
 
@@ -42,8 +41,8 @@ import { EdittestimonialComponent } from './edittestimonial/edittestimonial.comp
     TestimonialsComponent,
     TestimonialformComponent,
     AddtestimonialComponent,
-    DeletetestimonialComponent,
-    EdittestimonialComponent,
+    
+    EdittestimonialComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

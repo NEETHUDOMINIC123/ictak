@@ -55,7 +55,7 @@ app.post('/insert',function(req,res){
 
 app.get('/testimonials',function(req,res){
     
-    TestimonialData.find()
+    TestimonialData.find().sort({ index: 1})
                 .then(function(testimonials){
                     res.send(testimonials);
                 });
@@ -107,6 +107,7 @@ app.post('/testimonial/update',(req,res)=>{
  })
 
 });
+//update with image
 app.post('/testimonial/updateWithFile',(req,res)=>{
 
   console.log(` inside updateWithFile ${req.body}`)
@@ -165,7 +166,22 @@ app.post('/testimonial/updateWithFile',(req,res)=>{
  })
 
 });
+ //udating index
+ app.put('/Testimonials/updateIndex',(req,res)=>{
+  res.header("Access-Control-Allow-Origin","*")
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH,PUT,DELETE,OPTIONS');     
+  
+  id         = req.body._id;
+  title      = req.body.name;
+  index      = req.body.index;
+  console.log(`update of ${title} with value ${index}`);
+  TestimonialData.findByIdAndUpdate({"_id":id},
+                              {$set:{"index":index}})
+ .then(function(){
+     res.send();
+ })
 
+});
 
 
 

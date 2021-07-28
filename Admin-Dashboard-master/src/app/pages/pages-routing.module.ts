@@ -7,7 +7,6 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { UsersComponent } from './users/users.component';
 import { TestimonialformComponent } from './testimonialform/testimonialform.component';
 import { EdittestimonialComponent } from './edittestimonial/edittestimonial.component';
-import { AddtestimonialComponent } from './addtestimonial/addtestimonial.component';
 import { TestService } from './test.service';
 
 
@@ -29,8 +28,6 @@ const routes: Routes = [{
       path: 'edittestimonial',
       component:EdittestimonialComponent,
     },
-
-
 
 
     {

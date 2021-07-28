@@ -47,9 +47,9 @@ export class TestimonialformComponent implements OnInit {
       }
     }
   
-  
+  }  
 
 
 
 
-}
+
