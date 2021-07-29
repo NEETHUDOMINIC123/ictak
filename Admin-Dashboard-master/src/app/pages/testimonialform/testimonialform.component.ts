@@ -19,7 +19,7 @@ export class TestimonialformComponent implements OnInit {
     testimonialDetails={
       name:"",
       position:"",
-      organization:"",
+      organisation:"",
       testimonial:"",
       course_title:"",
       image:""

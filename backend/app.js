@@ -40,7 +40,7 @@ app.post('/insert',function(req,res){
         
         name : req.body.name,
         position : req.body.position,
-        organization : req.body.organization,
+        organisation : req.body.organisation,
         testimonial : req.body.testimonial,
         course_title  : req.body.course_title,   
         image : req.body.image,
@@ -91,14 +91,14 @@ app.post('/testimonial/update',(req,res)=>{
         id          = req.body._id,
         name        = req.body.name,
         position    = req.body.position,
-        organization = req.body.organization,
+        organisation = req.body.organisation,
         testimonial  = req.body.testimonial,
         course_title =req.body.course_title,
         image       = req.body.image
         TestimonialData.findByIdAndUpdate({"_id":id},
                               {$set:{"name":name,
                               "position":position,
-                              "organization":organization,
+                              "organisation":organisation,
                               "testimonial":testimonial,
                               "course_title":course_title,
                               "image":image}})
@@ -133,14 +133,14 @@ app.post('/testimonial/updateWithFile',(req,res)=>{
         id  = req.body._id,
         name  = req.body.name,
   position = req.body.position,
-  organization       = req.body.organization,
+  organisation       = req.body.organisation,
   testimonial        =req.body.testimonial,
   course_title       =req.body.course_title,
   image              = req.body.image
   TestimonialData.findByIdAndUpdate({"_id":id},
                               {$set:{"name":name,
                               "position":position,
-                              "organization":organization,
+                              "organisation":organisation,
                               "testimonial":testimonial,
                               "course_title":course_title,
                               "image":image}})

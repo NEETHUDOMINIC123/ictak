@@ -11,7 +11,7 @@ export class TestService {
   item={
     name:"",
     position:"",
-    organization:"",
+    organisation:"",
     testimonial:"",
     course_title:"",
     image:""
@@ -34,7 +34,8 @@ export class TestService {
     formData.append('file', image);  
     formData.append('name', item.name); 
     formData.append('position', item.position); 
-    formData.append('organization', item.organization); 
+    formData.append('organisation', item.organisation); 
+    formData.append('testimonial', item.testimonial); 
     formData.append('course_title', item.course_title);
     formData.append('image', item.image); 
      
@@ -63,7 +64,8 @@ export class TestService {
     formData.append('file', image);  
     formData.append('name', item.name); 
     formData.append('position', item.position); 
-    formData.append('organization', item.organization); 
+    formData.append('organisation', item.organisation); 
+    formData.append('testimonial', item.testimonial); 
     formData.append('course_title', item.course_title);
     formData.append('image', item.image); 
      

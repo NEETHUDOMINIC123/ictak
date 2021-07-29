@@ -15,12 +15,12 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class TestimonialsComponent implements OnInit {
 
-  
+ 
 
     testimonials=[{
       name:"",
       position:"",
-      organization:"",
+      organisation:"",
       testimonial:"",
       course_title:"",
       Image:""
@@ -45,12 +45,12 @@ export class TestimonialsComponent implements OnInit {
    }
    // viewCourse(course : any) {
     //  localStorage.setItem("adminViewCourseID", course._id.toString());
-     // this.router.navigate(['viewcourse']);
+     
     // this.router.navigate(['../viewcourse'], { relativeTo: this.route });
  
   // }
-   //editTestimoial(testimonial : any) {
-    // localStorage.setItem("adminEditCourseID", course._id.toString());
+   //editTestimonial(testimonial : any) {
+    
     
   //  localStorage.setItem("adminEditStaffID", testimonial._id.toString());
     
